@@ -9,19 +9,19 @@
     <link name='base_link'>
       <pose>0 0 0 0 0 0</pose> 
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>5</mass>
+        <pose>0.94 0 0.357 0 0 0</pose> <!-- fusion COM - link pose -->
+        <mass>0.654</mass>
         <inertia>
-          <ixx>0.477708333333</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.341666666667</iyy>
-          <iyz>0</iyz>
-          <izz>0.811041666667</izz>
+          <ixx>0.175000000000</ixx>
+          <ixy>0.000001659083</ixy>
+          <ixz>0.001373000000</ixz>
+          <iyy>0.064200000000</iyy>
+          <iyz>-0.000000092470</iyz>
+          <izz>0.236700000000</izz>
         </inertia>
       </inertial>
       <collision name='base_link_collision'>
-        <pose>0 0 -0.07 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.55 2.144 0.05</size>
@@ -168,7 +168,7 @@
     <link name='rotor_1'>
       <pose>0.32 0.502 0.397 0 0 0</pose> <!-- put the joint point here -->
       <inertial>
-        <pose>0 0 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
+        <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <mass>0.005</mass>
         <inertia>
           <ixx>9.75e-07</ixx>
@@ -217,7 +217,7 @@
     <link name='rotor_2'>
       <pose>1.216 -0.502 0.397 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <mass>0.005</mass>
         <inertia>
           <ixx>9.75e-07</ixx>
@@ -266,7 +266,7 @@
     <link name='rotor_3'>
       <pose>0.32 -0.502 0.397 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <mass>0.005</mass>
         <inertia>
           <ixx>9.75e-07</ixx>
@@ -315,7 +315,7 @@
     <link name='rotor_4'>
       <pose>1.216 0.502 0.397 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <mass>0.005</mass>
         <inertia>
           <ixx>9.75e-07</ixx>
@@ -365,7 +365,7 @@
     <link name='rotor_pusher'>
       <pose>1.8 0 0.327 0 1.57 0</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <mass>0.005</mass>
         <inertia>
           <ixx>9.75e-07</ixx>
@@ -415,16 +415,16 @@
     <link name="left_aileron">
       <pose> 0.907 -0.832 0.381 0 0 0</pose>
       <inertial>
-        <mass>0.00000001</mass>
+        <pose>0.03 -0.031 -0.008 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
+        <mass>0.006</mass>
         <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
+          <ixx>0.000077315973</ixx>
+          <ixy>-0.000001428395</ixy>
+          <ixz>0.000000380942</ixz>
+          <iyy>0.000001797248</iyy>
+          <iyz>0.000000079798</iyz>
+          <izz>0.000078797539</izz>
         </inertia>
-        <pose>0 0.3 0 0.00 0 0.0</pose>
       </inertial>
       <visual name='left_aileron_visual'>
         <pose> -0.907 0.832 -0.381 0 0 0</pose>
@@ -445,16 +445,16 @@
     <link name="right_aileron">
       <pose> 0.907 0.832 0.381 0 0 0</pose>
       <inertial>
-        <mass>0.00000001</mass>
+        <pose>0.03 0.031 -0.008 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
+        <mass>0.006</mass>
         <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
+          <ixx>0.000077315973</ixx>
+          <ixy>0.000001428395</ixy>
+          <ixz>0.000000380942</ixz>
+          <iyy>0.000001797248</iyy>
+          <iyz>-0.000000079798</iyz>
+          <izz>0.000078797539</izz>
         </inertia>
-        <pose>0 -0.6 0 0.00 0 0.0</pose>
       </inertial>
       <visual name='right_aileron_visual'>
         <pose> -0.907 -0.832 -0.381 0 0 0</pose>
@@ -475,17 +475,17 @@
     <link name="left_elevator">
       <pose> 1.683 -0.062 0.329 0 0 0</pose>
       <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>0 -0.6 0 0.00 0 0.0</pose>
-      </inertial>
+          <pose>0.024 -0.123 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
+          <mass>0.0025</mass>
+          <inertia>
+            <ixx>0.000014154165</ixx>
+            <ixy>-0.000000015352</ixy>
+            <ixz>0.000000000000</ixz>
+            <iyy>0.000000510696</iyy>
+            <iyz>0.000000000000</iyz>
+            <izz>0.000014634809</izz>
+          </inertia>
+        </inertial>
       <visual name='left_elevator_visual'>
         <pose> -1.683 0.062 -0.329 0 0 0</pose>
         <geometry>
@@ -505,17 +505,17 @@
     <link name="right_elevator">
       <pose> 1.683 0.062 0.329 0 0 0</pose>
       <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>0 -0.6 0 0.00 0 0.0</pose>
-      </inertial>
+          <pose>0.024 0.123 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
+          <mass>0.0025</mass>
+          <inertia>
+            <ixx>0.000014154165</ixx>
+            <ixy>0.000000015352</ixy>
+            <ixz>0.000000000000</ixz>
+            <iyy>0.000000510696</iyy>
+            <iyz>0.000000000000</iyz>
+            <izz>0.000014634809</izz>
+          </inertia>
+        </inertial>
       <visual name='right_elevator_visual'>
         <pose> -1.683 -0.062 -0.329 0 0 0</pose>
         <geometry>
@@ -535,17 +535,17 @@
     <link name="rudder">
       <pose> 1.636 0 0.378 0 0 0</pose>
       <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>0 0 0 0 0 0</pose>
-      </inertial>
+          <pose>0.018 0 0.072 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
+          <mass>0.0016</mass>
+          <inertia>
+            <ixx>0.000004008830</ixx>
+            <ixy>0.00000000000</ixy> <!-- was -0.000000000012, round it to 0-->
+            <ixz>0.000000227813</ixz>
+            <iyy>0.000004247750</iyy>
+            <iyz>0.000000000000</iyz> <!-- was -0.000000000001, round it to 0-->
+            <izz>0.000000265184</izz>
+          </inertia>
+        </inertial>
       <visual name='rudder_visual'>
         <pose> -1.636 0 -0.378 0 0 0</pose>
         <geometry>
