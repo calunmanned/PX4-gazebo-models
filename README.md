@@ -33,3 +33,27 @@ The following arguments can be passed:
 `--dryrun` A boolean variable that can be set when running testcases. It will not provide any interactivity and will not start Gazebo simulation.
 
 `--headless` A boolean variable providing the ability to run in headless (server-only) mode. This is the [mode of operation in macOS](https://gazebosim.org/docs/harmonic/getstarted#macos), and is more suitable for container use.
+
+
+---
+# Multi Vehicle Simulation
+
+check documentation:
+https://docs.px4.io/main/en/simulation/multi-vehicle-simulation
+
+```
+
+```
+
+## Note on Communication
+
+- PX4's remote UDP Port 14550 is used for communication with ground control stations. GCS are expected to listen for connections on this port. QGroundControl listens to this port by default.
+
+- PX4's remote UDP Port 14540 is used for communication with offboard APIs. Offboard APIs are expected to listen for connections on this port.
+
+
+> Multi-vehicle simulations use a separate remote port for each instance, allocated sequentially from 14540 to 14549 (additional instances all use port 14549).
+
+- The simulator's local TCP Port, 4560, is used for communication with PX4. The simulator listens to this port, and PX4 initiates a TCP connection to it.
+
+> The ports for the GCS, offboard APIs and simulator are specified by startup scripts. See System Startup to learn more. https://docs.px4.io/main/en/concept/system_startup
