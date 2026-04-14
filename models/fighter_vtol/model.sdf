@@ -213,9 +213,6 @@
       <velocity_decay />
       <self_collide>0</self_collide>
     </link>
-    
-    <link name='rotor_1'> <!-- Rear Left -->
-      <pose>1.216 -0.502 0.397 0 0 0</pose>
 
     <link name='rotor_1'>
       <pose>-0.466 0.502 0.05 0 0 0</pose>
