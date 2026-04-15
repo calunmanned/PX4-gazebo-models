@@ -3,38 +3,27 @@
 <sdf version='1.10'>
   <model name='fighter_vtol'>
     <pose>0 0 3 0 0 0</pose> <!-- follow the FLU convention, our CAD model is facing negative x axis-->
-    <pose>0 0 3 0 0 0</pose> <!-- follow the FLU convention, our CAD model is facing negative x axis-->
 
     <!-- Links/Components -->
     <!-- fuselage + wings (main body) -->
     <link name='base_link'>
       <pose>0 0 0 0 0 0</pose> 
       <inertial>
-        <pose>0 0 0 0 0 0</pose> 
-        <mass>11.5</mass>
-        <pose>0 0 0 0 0 0</pose> 
+        <pose>0 0 0 0 0 0</pose>
         <mass>11.5</mass>
         <inertia>
-          <ixx>0.41587911</ixx>  
+          <ixx>0.41587911</ixx>
           <ixy>-0.00094701</ixy>
           <ixz>-0.03615184525</ixz>
-          <iyy>0.9661511974</iyy>  
+          <iyy>0.9661511974</iyy>
           <iyz>-0.00032741</iyz>
-          <izz>1.299206155</izz>  
-          <ixx>0.41587911</ixx>  
-          <ixy>-0.00094701</ixy>
-          <ixz>-0.03615184525</ixz>
-          <iyy>0.9661511974</iyy>  
-          <iyz>-0.00032741</iyz>
-          <izz>1.299206155</izz>  
+          <izz>1.299206155</izz>
         </inertia>
       </inertial>
       <collision name='base_link_collision'>
         <pose>0 0 0 0 0 0</pose>
-        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>1.5 2.5 0.3</size>
             <size>1.5 2.5 0.3</size>
           </box>
         </geometry>
@@ -57,7 +46,6 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale> <!-- Fusion model unit is mm, sdf unit is m-->
-            <uri>model://fighter_vtol/meshes/gz_fighter_vtol_fuselage_v2.dae</uri>
             <uri>model://fighter_vtol/meshes/gz_fighter_vtol_fuselage_v2.dae</uri>
           </mesh>
         </geometry>
@@ -180,7 +168,6 @@
     <link name='rotor_0'>
       <pose>0.43 -0.502 0.05 0 0 0</pose> <!-- put the joint point here -->
       <inertial>
-        <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <mass>0.005</mass>
         <inertia>
@@ -460,8 +447,6 @@
       <inertial>
         <pose>0 0 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
         <mass>0.006</mass>
-        <pose>0 0 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
-        <mass>0.006</mass>
         <inertia>
           <ixx>0.000001</ixx>
           <ixy>0.0</ixy>
@@ -472,7 +457,6 @@
         </inertia>
       </inertial>
       <visual name='right_aileron_visual'>
-        <pose> 0.907 0.832 -0.021 0 0 0</pose>
         <pose> 0.907 0.832 -0.021 0 0 0</pose>
         <geometry>
           <mesh>
@@ -636,7 +620,6 @@
     <!-- rotor_2-fuselage joint -->
     <joint name='rotor_2_joint' type='revolute'>
       <pose>0 0 0 0 0 0</pose>
-      <child>rotor_2</child>
       <child>rotor_2</child>
       <parent>base_link</parent>
       <axis>
@@ -846,7 +829,6 @@
     </plugin>
 
   <!-- left elevator -->
-  <!-- left elevator -->
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
       <link_name>base_link</link_name>
       <air_density>1.225</air_density>
@@ -940,14 +922,9 @@
       name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_0_joint</jointName>
       <linkName>rotor_0</linkName>
-      <jointName>rotor_0_joint</jointName>
-      <linkName>rotor_0</linkName>
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>1055</maxRotVelocity>
-      <motorConstant>7.6e-05</motorConstant>
-      <momentConstant>0.0205</momentConstant>
       <maxRotVelocity>1055</maxRotVelocity>
       <motorConstant>7.6e-05</motorConstant>
       <momentConstant>0.0205</momentConstant>
@@ -965,14 +942,9 @@
       name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_1_joint</jointName>
       <linkName>rotor_1</linkName>
-      <jointName>rotor_1_joint</jointName>
-      <linkName>rotor_1</linkName>
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>1055</maxRotVelocity>
-      <motorConstant>7.6e-05</motorConstant>
-      <momentConstant>0.0205</momentConstant>
       <maxRotVelocity>1055</maxRotVelocity>
       <motorConstant>7.6e-05</motorConstant>
       <momentConstant>0.0205</momentConstant>
@@ -990,14 +962,9 @@
       name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_2_joint</jointName>
       <linkName>rotor_2</linkName>
-      <jointName>rotor_2_joint</jointName>
-      <linkName>rotor_2</linkName>
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>1055</maxRotVelocity>
-      <motorConstant>7.6e-05</motorConstant>
-      <momentConstant>0.0205</momentConstant>
       <maxRotVelocity>1055</maxRotVelocity>
       <motorConstant>7.6e-05</motorConstant>
       <momentConstant>0.0205</momentConstant>
@@ -1014,14 +981,9 @@
       name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_3_joint</jointName>
       <linkName>rotor_3</linkName>
-      <jointName>rotor_3_joint</jointName>
-      <linkName>rotor_3</linkName>
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>1055</maxRotVelocity>
-      <motorConstant>7.6e-05</motorConstant>
-      <momentConstant>0.0205</momentConstant>
       <maxRotVelocity>1055</maxRotVelocity>
       <motorConstant>7.6e-05</motorConstant>
       <momentConstant>0.0205</momentConstant>
@@ -1042,9 +1004,6 @@
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>826</maxRotVelocity>
-      <motorConstant>1.096e-04</motorConstant>
-      <momentConstant>0.02807</momentConstant>
       <maxRotVelocity>826</maxRotVelocity>
       <motorConstant>1.096e-04</motorConstant>
       <momentConstant>0.02807</momentConstant>
