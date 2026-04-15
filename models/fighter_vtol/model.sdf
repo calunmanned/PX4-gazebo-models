@@ -3,6 +3,7 @@
 <sdf version='1.10'>
   <model name='fighter_vtol'>
     <pose>0 0 3 0 0 0</pose> <!-- follow the FLU convention, our CAD model is facing negative x axis-->
+    <pose>0 0 3 0 0 0</pose> <!-- follow the FLU convention, our CAD model is facing negative x axis-->
 
     <!-- Links/Components -->
     <!-- fuselage + wings (main body) -->
@@ -11,7 +12,15 @@
       <inertial>
         <pose>0 0 0 0 0 0</pose> 
         <mass>11.5</mass>
+        <pose>0 0 0 0 0 0</pose> 
+        <mass>11.5</mass>
         <inertia>
+          <ixx>0.41587911</ixx>  
+          <ixy>-0.00094701</ixy>
+          <ixz>-0.03615184525</ixz>
+          <iyy>0.9661511974</iyy>  
+          <iyz>-0.00032741</iyz>
+          <izz>1.299206155</izz>  
           <ixx>0.41587911</ixx>  
           <ixy>-0.00094701</ixy>
           <ixz>-0.03615184525</ixz>
@@ -22,8 +31,10 @@
       </inertial>
       <collision name='base_link_collision'>
         <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
+            <size>1.5 2.5 0.3</size>
             <size>1.5 2.5 0.3</size>
           </box>
         </geometry>
@@ -46,6 +57,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale> <!-- Fusion model unit is mm, sdf unit is m-->
+            <uri>model://fighter_vtol/meshes/gz_fighter_vtol_fuselage_v2.dae</uri>
             <uri>model://fighter_vtol/meshes/gz_fighter_vtol_fuselage_v2.dae</uri>
           </mesh>
         </geometry>
@@ -164,10 +176,14 @@
 
     <!-- the vertical motors/rotors follows the conventions used by PX4-->
     <!-- Ref: https://docs.px4.io/main/en/airframes/airframe_reference#standard-vtol -->
+    <!-- motors/rotors 1 Front Right-->
+    <link name='rotor_0'>
+      <pose>0.43 -0.502 0.05 0 0 0</pose> <!-- put the joint point here -->
     <!-- motors/rotors 1 -->
     <link name='rotor_0'>
       <pose>0.43 -0.502 0.05 0 0 0</pose> <!-- put the joint point here -->
       <inertial>
+        <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <mass>0.005</mass>
         <inertia>
@@ -179,6 +195,7 @@
           <izz>0.000167604</izz>
         </inertia>
       </inertial>
+      <collision name='rotor_0_collision'>
       <collision name='rotor_0_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -196,6 +213,7 @@
           </friction>
         </surface>
       </collision>
+      <visual name='rotor_0_visual'>
       <visual name='rotor_0_visual'>
         <pose>0 0 0 0 0 0</pose> <!-- since the prop is from the pre-built model, its origin is its CG-->
         <geometry>
@@ -216,7 +234,10 @@
 
     <link name='rotor_1'>
       <pose>-0.466 0.502 0.05 0 0 0</pose>
+    <link name='rotor_1'>
+      <pose>-0.466 0.502 0.05 0 0 0</pose>
       <inertial>
+        <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <mass>0.005</mass>
         <inertia>
@@ -228,6 +249,7 @@
           <izz>0.000167604</izz>
         </inertia>
       </inertial>
+      <collision name='rotor_1_collision'>
       <collision name='rotor_1_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -245,6 +267,7 @@
           </friction>
         </surface>
       </collision>
+      <visual name='rotor_1_visual'>
       <visual name='rotor_1_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -265,7 +288,10 @@
 
     <link name='rotor_2'>
       <pose>0.43 0.502 0.05 0 0 0</pose>
+    <link name='rotor_2'>
+      <pose>0.43 0.502 0.05 0 0 0</pose>
       <inertial>
+        <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <mass>0.005</mass>
         <inertia>
@@ -277,6 +303,7 @@
           <izz>0.000167604</izz>
         </inertia>
       </inertial>
+      <collision name='rotor_2_collision'>
       <collision name='rotor_2_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -294,6 +321,7 @@
           </friction>
         </surface>
       </collision>
+      <visual name='rotor_2_visual'>
       <visual name='rotor_2_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -314,7 +342,10 @@
 
     <link name='rotor_3'>
       <pose>-0.466 -0.502 0.05 0 0 0</pose>
+    <link name='rotor_3'>
+      <pose>-0.466 -0.502 0.05 0 0 0</pose>
       <inertial>
+        <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <mass>0.005</mass>
         <inertia>
@@ -326,6 +357,7 @@
           <izz>0.000167604</izz>
         </inertia>
       </inertial>
+      <collision name='rotor_3_collision'>
       <collision name='rotor_3_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -343,6 +375,7 @@
           </friction>
         </surface>
       </collision>
+      <visual name='rotor_3_visual'>
       <visual name='rotor_3_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -364,7 +397,9 @@
     <!-- pusher motors/rotors -->
     <link name='rotor_pusher'>
       <pose>-1.05 0 0.00 0 1.57 0</pose>
+      <pose>-1.05 0 0.00 0 1.57 0</pose>
       <inertial>
+        <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <pose>0 0 0 0 0 0</pose> <!-- using default prop, no need to change -->
         <mass>0.005</mass>
         <inertia>
@@ -377,6 +412,7 @@
         </inertia>
       </inertial>
       <collision name='rotor_pusher_collision'>
+        <pose>0.0 0 0 0 0 0</pose>
         <pose>0.0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
@@ -414,10 +450,19 @@
     <!--left aileron-->
     <link name="left_aileron">
       <pose> -0.907 0.832 0.021 0 0 0</pose>
+      <pose> -0.907 0.832 0.021 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
         <mass>0.006</mass>
+        <pose>0 0 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
+        <mass>0.006</mass>
         <inertia>
+          <ixx>9.75e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
           <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
@@ -428,9 +473,11 @@
       </inertial>
       <visual name='left_aileron_visual'>
         <pose> 0.907 -0.832 -0.021 0 0 0</pose>
+        <pose> 0.907 -0.832 -0.021 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
+            <uri>model://fighter_vtol/meshes/gz_fighter_vtol_left_aileron_v2.dae</uri>
             <uri>model://fighter_vtol/meshes/gz_fighter_vtol_left_aileron_v2.dae</uri>
           </mesh>
         </geometry>
@@ -444,10 +491,19 @@
     <!-- right aileron-->
     <link name="right_aileron">
       <pose> -0.907 -0.832 0.021 0 0 0</pose>
+      <pose> -0.907 -0.832 0.021 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
         <mass>0.006</mass>
+        <pose>0 0 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
+        <mass>0.006</mass>
         <inertia>
+          <ixx>9.75e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
           <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
@@ -458,9 +514,11 @@
       </inertial>
       <visual name='right_aileron_visual'>
         <pose> 0.907 0.832 -0.021 0 0 0</pose>
+        <pose> 0.907 0.832 -0.021 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
+            <uri>model://fighter_vtol/meshes/gz_fighter_vtol_right_aileron_v2.dae</uri>
             <uri>model://fighter_vtol/meshes/gz_fighter_vtol_right_aileron_v2.dae</uri>
           </mesh>
         </geometry>
@@ -473,6 +531,7 @@
 
       <!-- left elevator-->
     <link name="left_elevator">
+      <pose> -1.683 0.062 0.000 0 0 0</pose>
       <pose> -1.683 0.062 0.000 0 0 0</pose>
       <inertial>
           <pose>0 0 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
@@ -488,9 +547,11 @@
         </inertial>
       <visual name='left_elevator_visual'>
         <pose> 1.683 -0.062 0.000 0 0 0</pose>
+        <pose> 1.683 -0.062 0.000 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
+            <uri>model://fighter_vtol/meshes/gz_fighter_vtol_left_elevator_v2.dae</uri>
             <uri>model://fighter_vtol/meshes/gz_fighter_vtol_left_elevator_v2.dae</uri>
           </mesh>
         </geometry>
@@ -503,6 +564,7 @@
 
     <!-- right elevator-->
     <link name="right_elevator">
+      <pose> -1.683 -0.062 0.000 0 0 0</pose>
       <pose> -1.683 -0.062 0.000 0 0 0</pose>
       <inertial>
           <pose>0 0 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
@@ -518,9 +580,11 @@
         </inertial>
       <visual name='right_elevator_visual'>
         <pose> 1.683 0.062 0.000 0 0 0</pose>
+        <pose> 1.683 0.062 0.000 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
+            <uri>model://fighter_vtol/meshes/gz_fighter_vtol_right_elevator_v2.dae</uri>
             <uri>model://fighter_vtol/meshes/gz_fighter_vtol_right_elevator_v2.dae</uri>
           </mesh>
         </geometry>
@@ -533,6 +597,7 @@
 
     <!-- rudder -->
     <link name="rudder">
+      <pose> -1.636 0 0.058 0 0 0</pose>
       <pose> -1.636 0 0.058 0 0 0</pose>
       <inertial>
           <pose>0 0 0 0 0 0</pose> <!-- use (CG in fusion - link_pose) -->
@@ -548,9 +613,11 @@
         </inertial>
       <visual name='rudder_visual'>
         <pose> 1.636 0 -0.058 0 0 0</pose>
+        <pose> 1.636 0 -0.058 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
+            <uri>model://fighter_vtol/meshes/gz_fighter_vtol_rudder_v2.dae</uri>
             <uri>model://fighter_vtol/meshes/gz_fighter_vtol_rudder_v2.dae</uri>
           </mesh>
         </geometry>
@@ -583,7 +650,10 @@
 
     <!-- rotor_0-fuselage joint -->
     <joint name='rotor_0_joint' type='revolute'>
+    <!-- rotor_0-fuselage joint -->
+    <joint name='rotor_0_joint' type='revolute'>
       <pose>0 0 0 0 0 0</pose>
+      <child>rotor_0</child>
       <child>rotor_0</child>
       <parent>base_link</parent>
       <axis>
@@ -601,7 +671,10 @@
 
     <!-- rotor_1-fuselage joint -->
     <joint name='rotor_1_joint' type='revolute'>
+    <!-- rotor_1-fuselage joint -->
+    <joint name='rotor_1_joint' type='revolute'>
       <pose>0 0 0 0 0 0</pose>
+      <child>rotor_1</child>
       <child>rotor_1</child>
       <parent>base_link</parent>
       <axis>
@@ -619,7 +692,10 @@
 
     <!-- rotor_2-fuselage joint -->
     <joint name='rotor_2_joint' type='revolute'>
+    <!-- rotor_2-fuselage joint -->
+    <joint name='rotor_2_joint' type='revolute'>
       <pose>0 0 0 0 0 0</pose>
+      <child>rotor_2</child>
       <child>rotor_2</child>
       <parent>base_link</parent>
       <axis>
@@ -637,7 +713,10 @@
 
     <!-- rotor_3-fuselage joint -->
     <joint name='rotor_3_joint' type='revolute'>
+    <!-- rotor_3-fuselage joint -->
+    <joint name='rotor_3_joint' type='revolute'>
       <pose>0 0 0 0 0 0</pose>
+      <child>rotor_3</child>
       <child>rotor_3</child>
       <parent>base_link</parent>
       <axis>
@@ -655,6 +734,7 @@
 
 
     <joint name='left_aileron_joint' type='revolute'>
+      <pose>0.75 0 0.036 0 0 0</pose> <!-- joint  in global (-0.157,y,0.037) pose here x = -0.157-(-0.907) = 0.75 , any y, z = 0.037-(0.021) = 0.036 -->
       <pose>0.75 0 0.036 0 0 0</pose> <!-- joint  in global (-0.157,y,0.037) pose here x = -0.157-(-0.907) = 0.75 , any y, z = 0.037-(0.021) = 0.036 -->
       <parent>base_link</parent>
       <child>left_aileron</child>
@@ -677,6 +757,7 @@
 
     <joint name='right_aileron_joint' type='revolute'>
       <pose>0.75 0 0.036 0 0 0</pose>
+      <pose>0.75 0 0.036 0 0 0</pose>
       <parent>base_link</parent>
       <child>right_aileron</child>
       <axis>
@@ -698,6 +779,7 @@
 
 
     <joint name='left_elevator_joint' type='revolute'>
+      <pose> 0.75 0 0.016 0 0 0</pose> <!-- global (-0.932, y, -0.016) x = -0.932 -(-1.683) = 0.751, any y, z = -0.016 - (0.0) = -0.016 ~ 0 -->
       <pose> 0.75 0 0.016 0 0 0</pose> <!-- global (-0.932, y, -0.016) x = -0.932 -(-1.683) = 0.751, any y, z = -0.016 - (0.0) = -0.016 ~ 0 -->
       <parent>base_link</parent>
       <child>left_elevator</child>
@@ -723,6 +805,7 @@
       <parent>base_link</parent>
       <child>right_elevator</child>
       <pose> 0.75 0 -0.016 0 0 0</pose>
+      <pose> 0.75 0 -0.016 0 0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -742,6 +825,7 @@
 
 
     <joint name='rudder_joint' type='revolute'>
+      <pose> 0.75 0 0 0 0 0</pose> <!-- global (-0.886, -0.008, z), x =  -0.886 -(-1.636) = 0.75, y = 0 (symmetric), any z-->
       <pose> 0.75 0 0 0 0 0</pose> <!-- global (-0.886, -0.008, z), x =  -0.886 -(-1.636) = 0.75, y = 0 (symmetric), any z-->
       <parent>base_link</parent>
       <child>rudder</child>
@@ -819,7 +903,7 @@
     <cma_stall>0.0</cma_stall>
 
       <control_joint_name>right_aileron_joint</control_joint_name>
-      <control_joint_rad_to_cl>-1.0</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>0.0137</control_joint_rad_to_cl>
     </plugin>
     <plugin
       filename="gz-sim-joint-position-controller-system"
@@ -828,6 +912,7 @@
       <sub_topic>servo_1</sub_topic>
     </plugin>
 
+  <!-- left elevator -->
   <!-- left elevator -->
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
       <link_name>base_link</link_name>
@@ -922,9 +1007,14 @@
       name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_0_joint</jointName>
       <linkName>rotor_0</linkName>
+      <jointName>rotor_0_joint</jointName>
+      <linkName>rotor_0</linkName>
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>1055</maxRotVelocity>
+      <motorConstant>7.6e-05</motorConstant>
+      <momentConstant>0.0205</momentConstant>
       <maxRotVelocity>1055</maxRotVelocity>
       <motorConstant>7.6e-05</motorConstant>
       <momentConstant>0.0205</momentConstant>
@@ -942,9 +1032,14 @@
       name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_1_joint</jointName>
       <linkName>rotor_1</linkName>
+      <jointName>rotor_1_joint</jointName>
+      <linkName>rotor_1</linkName>
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>1055</maxRotVelocity>
+      <motorConstant>7.6e-05</motorConstant>
+      <momentConstant>0.0205</momentConstant>
       <maxRotVelocity>1055</maxRotVelocity>
       <motorConstant>7.6e-05</motorConstant>
       <momentConstant>0.0205</momentConstant>
@@ -962,9 +1057,14 @@
       name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_2_joint</jointName>
       <linkName>rotor_2</linkName>
+      <jointName>rotor_2_joint</jointName>
+      <linkName>rotor_2</linkName>
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>1055</maxRotVelocity>
+      <motorConstant>7.6e-05</motorConstant>
+      <momentConstant>0.0205</momentConstant>
       <maxRotVelocity>1055</maxRotVelocity>
       <motorConstant>7.6e-05</motorConstant>
       <momentConstant>0.0205</momentConstant>
@@ -981,9 +1081,14 @@
       name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_3_joint</jointName>
       <linkName>rotor_3</linkName>
+      <jointName>rotor_3_joint</jointName>
+      <linkName>rotor_3</linkName>
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>1055</maxRotVelocity>
+      <motorConstant>7.6e-05</motorConstant>
+      <momentConstant>0.0205</momentConstant>
       <maxRotVelocity>1055</maxRotVelocity>
       <motorConstant>7.6e-05</motorConstant>
       <momentConstant>0.0205</momentConstant>
@@ -1004,6 +1109,9 @@
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>826</maxRotVelocity>
+      <motorConstant>1.096e-04</motorConstant>
+      <momentConstant>0.02807</momentConstant>
       <maxRotVelocity>826</maxRotVelocity>
       <motorConstant>1.096e-04</motorConstant>
       <momentConstant>0.02807</momentConstant>
