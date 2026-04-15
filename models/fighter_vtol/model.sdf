@@ -776,14 +776,14 @@
     <upward>0 0 1</upward>
     
     <cp>-0.05 0.3 0.05</cp> 
-    
+    <!-- NACA-5411-->
     <a0>0.08727</a0> <!-- 5 degrees in radians -->
     <cla>6.19</cla> <!-- 0.1081 [1/deg] * (180/pi) = 6.19 [1/rad] -->
     <cla_stall>-2.44</cla_stall> <!-- -0.0427[1/deg]*(180/pi)= -2.44 [1/rad] -->
     <alpha_stall>0.27227</alpha_stall> <!-- 10.6 + a0 = 15.6 degrees in radians -->
 
-    <cda>0.6417112299</cda>
-    <cda_stall>-0.9233984055</cda_stall>
+    <cda>0.09740</cda> <!-- 0.0017[1/deg]*(180/pi)=0.09740-->
+    <cda_stall>-0.85371</cda_stall> <!-- 0.0149 [1/deg] * (180/pi)=0.85371, put a minus sign here following the convention from standard vtol-->
     <cma>0.0</cma>
     <cma_stall>0.0</cma_stall>
 
@@ -807,14 +807,14 @@
     <upward>0 0 1</upward>
     
     <cp>-0.05 -0.3 0.05</cp> 
-    
+    <!--NACA-5411-->
     <a0>0.08727</a0> <!-- 5 degrees in radians -->
     <cla>6.19</cla> <!-- 0.1081 [1/deg] * (180/pi) = 6.19 [1/rad] -->
     <cla_stall>-2.44</cla_stall> <!-- -0.0427[1/deg]*(180/pi)= -2.44 [1/rad] -->
     <alpha_stall>0.27227</alpha_stall> <!-- 10.6 + a0 = 15.6 degrees in radians -->
 
-    <cda>0.6417112299</cda>
-    <cda_stall>-0.9233984055</cda_stall>
+    <cda>0.09740</cda> <!-- 0.0017[1/deg]*(180/pi)=0.09740-->
+    <cda_stall>-0.85371</cda_stall> <!-- 0.0149 [1/deg] * (180/pi)=0.85371, put a minus sign here following the convention from standard vtol-->
     <cma>0.0</cma>
     <cma_stall>0.0</cma_stall>
 
@@ -838,14 +838,14 @@
     <upward>0 0 1</upward>
     
     <cp>-1.0 0.2 -0.05</cp> 
-    
-    <a0>0.08727</a0> <!-- 5 degrees in radians -->
-    <cla>6.19</cla> <!-- 0.1081 [1/deg] * (180/pi) = 6.19 [1/rad] -->
-    <cla_stall>-2.44</cla_stall> <!-- -0.0427[1/deg]*(180/pi)= -2.44 [1/rad] -->
-    <alpha_stall>0.27227</alpha_stall> <!-- 10.6 + a0 = 15.6 degrees in radians -->
+    <!--NACA-0009-->
+    <a0>0</a0> <!-- 0 degrees in radians -->
+    <cla>7.02</cla> <!-- 0.1226 [1/deg] * (180/pi) = 7.02 [1/rad] -->
+    <cla_stall>-8.02</cla_stall> <!-- -0.1399[1/deg]*(180/pi)= -8.02 [1/rad] -->
+    <alpha_stall>0.15708</alpha_stall> <!-- 9 + a0 = 9 degrees in radians -->
 
-    <cda>0.6417112299</cda>
-    <cda_stall>-0.9233984055</cda_stall>
+    <cda>0.14897</cda> <!-- NACA-0009 0.0026[1/deg]*(180/pi)=0.14897-->
+    <cda_stall>-1.2490</cda_stall> <!-- 0.0218 [1/deg] * (180/pi)=1.24905, put a minus sign here following the convention from standard vtol-->
     <cma>0.0</cma>
     <cma_stall>0.0</cma_stall>
 
@@ -870,13 +870,14 @@
     
     <cp>-1.0 -0.2 -0.05</cp> 
     
-    <a0>0.08727</a0> <!-- 5 degrees in radians -->
-    <cla>6.19</cla> <!-- 0.1081 [1/deg] * (180/pi) = 6.19 [1/rad] -->
-    <cla_stall>-2.44</cla_stall> <!-- -0.0427[1/deg]*(180/pi)= -2.44 [1/rad] -->
-    <alpha_stall>0.27227</alpha_stall> <!-- 10.6 + a0 = 15.6 degrees in radians -->
+    <!--NACA-0009-->
+    <a0>0</a0> <!-- 0 degrees in radians -->
+    <cla>7.02</cla> <!-- 0.1226 [1/deg] * (180/pi) = 7.02 [1/rad] -->
+    <cla_stall>-8.02</cla_stall> <!-- -0.1399[1/deg]*(180/pi)= -8.02 [1/rad] -->
+    <alpha_stall>0.15708</alpha_stall> <!-- 9 + a0 = 9 degrees in radians -->
 
-    <cda>0.6417112299</cda>
-    <cda_stall>-0.9233984055</cda_stall>
+    <cda>0.14897</cda> <!-- NACA-0009 0.0026[1/deg]*(180/pi)=0.14897-->
+    <cda_stall>-1.2490</cda_stall> <!-- 0.0218 [1/deg] * (180/pi)=1.24905, put a minus sign here following the convention from standard vtol-->
     <cma>0.0</cma>
     <cma_stall>0.0</cma_stall>
 
@@ -890,22 +891,26 @@
     <sub_topic>servo_3</sub_topic>
   </plugin>
 
-    <!-- rudder assume no aerao dynamic effect right now-->
-    <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
+  <!-- rudder assume no aerao dynamic effect right now-->
+  <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
       <link_name>base_link</link_name>
       <air_density>1.225</air_density>
       <area>0.035</area> 
       <forward>1 0 0</forward>
       <upward>0 1 0</upward> <!-- the rudder serves as a "vertical airfoil"-->
       <cp>-1.63 0 0.45</cp>
-      <a0>0.0</a0>
-      <cla>3.0</cla>
-      <cda>0.02</cda>
-      <cma>0.0</cma>
-      <alpha_stall>0.33</alpha_stall>
-      <cla_stall>-0.2</cla_stall>
-      <cda_stall>1.0</cda_stall>
-      <cma_stall>0.0</cma_stall>
+    <cp>-1.0 -0.2 -0.05</cp> 
+    
+    <!--NACA-0009-->
+    <a0>0</a0> <!-- 0 degrees in radians -->
+    <cla>7.02</cla> <!-- 0.1226 [1/deg] * (180/pi) = 7.02 [1/rad] -->
+    <cla_stall>-8.02</cla_stall> <!-- -0.1399[1/deg]*(180/pi)= -8.02 [1/rad] -->
+    <alpha_stall>0.15708</alpha_stall> <!-- 9 + a0 = 9 degrees in radians -->
+
+    <cda>0.14897</cda> <!-- NACA-0009 0.0026[1/deg]*(180/pi)=0.14897-->
+    <cda_stall>-1.2490</cda_stall> <!-- 0.0218 [1/deg] * (180/pi)=1.24905, put a minus sign here following the convention from standard vtol-->
+    <cma>0.0</cma>
+    <cma_stall>0.0</cma_stall>
 
       <control_joint_name>rudder_joint</control_joint_name>
       <control_joint_rad_to_cl>-1.0</control_joint_rad_to_cl>
