@@ -899,7 +899,6 @@
       <forward>1 0 0</forward>
       <upward>0 1 0</upward> <!-- the rudder serves as a "vertical airfoil"-->
       <cp>-1.63 0 0.45</cp>
-    <cp>-1.0 -0.2 -0.05</cp> 
     
     <!--NACA-0009-->
     <a0>0</a0> <!-- 0 degrees in radians -->
