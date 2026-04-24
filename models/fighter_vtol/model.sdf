@@ -1018,6 +1018,15 @@
       <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
+    <!-- Airspeed sensor -->
+    <include merge='true'>
+      <uri>model://airspeed</uri>
+      <pose>0.1 0 0 0 0 0</pose>
+    </include>
+    <joint name='airspeed_joint' type='fixed'>
+      <parent>base_link</parent>
+      <child>airspeed_link</child>
+    </joint>
     <static>0</static>
   </model>
 </sdf>
