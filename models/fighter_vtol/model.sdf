@@ -762,13 +762,14 @@
     <!-- Joints end -->
 
     <!-- Dynamical model Plugins -->
+
     <!-- left aileron -->
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
     <link_name>base_link</link_name>
     <air_density>1.225</air_density>
 
 
-    <area>0.365</area> <!-- 309*515 + (309+ 280)*700/2 ~= 365285mm2 = 0.0365285m2 -->
+    <area>0.365</area> <!-- Total area per wing half = 0.365 m² -->
     <forward>1 0 0</forward>
     <upward>0 0 1</upward>
 
@@ -779,7 +780,7 @@
     <cla_stall>-2.44</cla_stall> <!-- -0.0427[1/deg]*(180/pi)= -2.44 [1/rad] -->
     <alpha_stall>0.27227</alpha_stall> <!-- 10.6 + a0 = 15.6 degrees in radians -->
 
-    <cda>0.09740</cda> <!-- 0.0017[1/deg]*(180/pi)=0.09740-->
+    <cda>1.0</cda> <!-- Increased from 0.0974 to add realistic parasitic drag (rc_cessna uses 1.5) -->
     <cda_stall>-0.85371</cda_stall> <!-- 0.0149 [1/deg] * (180/pi)=0.85371, put a minus sign here following the convention from standard vtol-->
     <cma>0.0</cma>
     <cma_stall>0.0</cma_stall>
@@ -811,7 +812,7 @@
     <cla_stall>-2.44</cla_stall> <!-- -0.0427[1/deg]*(180/pi)= -2.44 [1/rad] -->
     <alpha_stall>0.27227</alpha_stall> <!-- 10.6 + a0 = 15.6 degrees in radians -->
 
-    <cda>0.09740</cda> <!-- 0.0017[1/deg]*(180/pi)=0.09740-->
+    <cda>1.0</cda> <!-- Increased from 0.0974 to add realistic parasitic drag (rc_cessna uses 1.5) -->
     <cda_stall>-0.85371</cda_stall> <!-- 0.0149 [1/deg] * (180/pi)=0.85371, put a minus sign here following the convention from standard vtol-->
     <cma>0.0</cma>
     <cma_stall>0.0</cma_stall>
@@ -843,7 +844,7 @@
     <cla_stall>-8.02</cla_stall> <!-- -0.1399[1/deg]*(180/pi)= -8.02 [1/rad] -->
     <alpha_stall>0.15708</alpha_stall> <!-- 9 + a0 = 9 degrees in radians -->
 
-    <cda>0.14897</cda> <!-- NACA-0009 0.0026[1/deg]*(180/pi)=0.14897-->
+    <cda>0.6</cda> <!-- Increased from 0.14897 for realistic drag (rc_cessna uses 0.64) -->
     <cda_stall>-1.2490</cda_stall> <!-- 0.0218 [1/deg] * (180/pi)=1.24905, put a minus sign here following the convention from standard vtol-->
     <cma>0.0</cma>
     <cma_stall>0.0</cma_stall>
@@ -876,7 +877,7 @@
     <cla_stall>-8.02</cla_stall> <!-- -0.1399[1/deg]*(180/pi)= -8.02 [1/rad] -->
     <alpha_stall>0.15708</alpha_stall> <!-- 9 + a0 = 9 degrees in radians -->
 
-    <cda>0.14897</cda> <!-- NACA-0009 0.0026[1/deg]*(180/pi)=0.14897-->
+    <cda>0.6</cda> <!-- Increased from 0.14897 for realistic drag (rc_cessna uses 0.64) -->
     <cda_stall>-1.2490</cda_stall> <!-- 0.0218 [1/deg] * (180/pi)=1.24905, put a minus sign here following the convention from standard vtol-->
     <cma>0.0</cma>
     <cma_stall>0.0</cma_stall>
@@ -907,7 +908,7 @@
     <cla_stall>-8.02</cla_stall> <!-- -0.1399[1/deg]*(180/pi)= -8.02 [1/rad] -->
     <alpha_stall>0.15708</alpha_stall> <!-- 9 + a0 = 9 degrees in radians -->
 
-    <cda>0.14897</cda> <!-- NACA-0009 0.0026[1/deg]*(180/pi)=0.14897-->
+    <cda>0.6</cda> <!-- Increased from 0.14897 for realistic drag (rc_cessna uses 0.64) -->
     <cda_stall>-1.2490</cda_stall> <!-- 0.0218 [1/deg] * (180/pi)=1.24905, put a minus sign here following the convention from standard vtol-->
     <cma>0.0</cma>
     <cma_stall>0.0</cma_stall>
