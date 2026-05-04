@@ -34,6 +34,14 @@
         <update_rate>5.0</update_rate>
         <always_on>1</always_on>
         <visualize>false</visualize>
+        <air_speed>
+          <airspeed>
+            <noise type="gaussian">
+              <mean>0</mean>
+              <stddev>0.2</stddev>
+            </noise>
+          </airspeed>
+        </air_speed>
       </sensor>
     </link>
   </model>
