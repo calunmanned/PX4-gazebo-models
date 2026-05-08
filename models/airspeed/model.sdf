@@ -35,12 +35,12 @@
         <always_on>1</always_on>
         <visualize>false</visualize>
         <air_speed>
-          <airspeed>
+          <pressure>
             <noise type="gaussian">
               <mean>0</mean>
-              <stddev>2.0</stddev>
+              <stddev>0.01</stddev>
             </noise>
-          </airspeed>
+          </pressure>
         </air_speed>
       </sensor>
     </link>
